@@ -1,0 +1,25 @@
+
+<label class="mt-5">Enter Temperature</label>
+<div class="input-group mb-5 mt-2" [formGroup]="addForm">
+  <input type="text" class="form-control" placeholder="Temperature" formControlName="temperature"
+         aria-label="Temperature">
+  <button class="btn btn-outline-secondary" type="button" id="button-addon2"
+          [disabled]="addForm.invalid" (click)="addTemperature()">
+    Button
+  </button>
+</div>
+
+<table class="table table-sm table-hover align-middle" *ngIf="temperatures.length > 0">
+  <thead>
+    <tr>
+      <th>Device Id</th>
+      <th>Temperature</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let temperature of temperatures" [routerLink]="['/devices/',temperature.deviceId]">
+      <td>{{temperature.deviceId}}</td>
+      <td>{{temperature.value}}</td>
+    </tr>
+  </tbody>
+</table>

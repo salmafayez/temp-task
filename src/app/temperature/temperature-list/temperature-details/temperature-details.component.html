@@ -1,0 +1,16 @@
+
+
+<table class="table table-sm table-hover align-middle" *ngIf="temperatures.length > 0">
+  <thead>
+    <tr>
+      <th>Temperature</th>
+      <th>Creation Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let temperature of temperatures">
+      <td>{{temperature.value}}</td>
+      <td>{{temperature.creationDate | date:'d/M/yyyy, hh:mm a'}}</td>
+    </tr>
+  </tbody>
+</table>
